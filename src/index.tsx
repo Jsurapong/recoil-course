@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Canvas from "./Canvas";
@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Atoms } from "./examples/Atoms";
 import { RecoilRoot } from "recoil";
 import { Selectors } from "./examples/Selectors";
+import { Async } from "./examples/Async";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,11 @@ ReactDOM.render(
             </Route>
             <Route path="/examples/selectors">
               <Selectors />
+            </Route>
+            <Route path="/examples/async">
+              <Suspense fallback={<div>loading...</div>}>
+                <Async />
+              </Suspense>
             </Route>
             <Route>
               <Canvas />
