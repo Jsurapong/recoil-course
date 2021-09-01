@@ -14,7 +14,7 @@ import {
 import _ from "lodash";
 import produce from "immer";
 
-const editPropertyState = selectorFamily<number, { path: string; id: number }>({
+export const editProperty = selectorFamily<any, { path: string; id: number }>({
   key: "editProperty",
   get:
     ({ path, id }) =>
@@ -23,7 +23,6 @@ const editPropertyState = selectorFamily<number, { path: string; id: number }>({
 
       return _.get(element, path);
     },
-
   set:
     ({ path, id }) =>
     ({ get, set }, newValue) => {
@@ -33,7 +32,7 @@ const editPropertyState = selectorFamily<number, { path: string; id: number }>({
         _.set(draft, path, newValue);
       });
 
-      set(elementState(element), newElement);
+      set(elementState(id), newElement);
     },
 });
 
@@ -82,7 +81,7 @@ const Property = ({
   path: string;
   id: number;
 }) => {
-  const [value, setValue] = useRecoilState(editPropertyState({ path, id }));
+  const [value, setValue] = useRecoilState(editProperty({ path, id }));
 
   return (
     <div>

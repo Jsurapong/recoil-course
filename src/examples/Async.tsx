@@ -26,7 +26,7 @@ const weatherState = selectorFamily({
   get:
     (userId: number) =>
     async ({ get }) => {
-        get(weatherRequestIdState(userId))
+      get(weatherRequestIdState(userId));
 
       const user = get(userState(userId));
       const weather = await getWeather(user.address.city);
@@ -40,7 +40,7 @@ const weatherRequestIdState = atomFamily({
 });
 
 const useRefetchWeather = (userId: number) => {
-    console.log(userId)
+  console.log(userId);
   const setRequestId = useSetRecoilState(weatherRequestIdState(userId));
   return () => setRequestId((id) => id + 1);
 };
