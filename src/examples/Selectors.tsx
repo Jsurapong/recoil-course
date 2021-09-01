@@ -10,7 +10,7 @@ import {
   Switch,
 } from "@chakra-ui/react";
 import { ArrowRight } from "react-feather";
-import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
+import { atom, selector, useRecoilState } from "recoil";
 
 const exchangeRate = 0.83;
 
@@ -30,7 +30,7 @@ const eurSelector = selector<number>({
 
     return usd * exchangeRate;
   },
-  set: ({ set,get }, newEurValue) => {
+  set: ({ set, get }, newEurValue) => {
     // @ts-ignore
     let newUsdValue = newEurValue / exchangeRate;
 

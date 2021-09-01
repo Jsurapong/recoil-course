@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 const darkModeAtom = atom({ key: "darkMode", default: false });
