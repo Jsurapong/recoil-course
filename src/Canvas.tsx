@@ -11,8 +11,6 @@ function Canvas() {
   const elements = useRecoilValue(elementState);
   const setSelectedElement = useSetRecoilState(selectedElementState);
 
-  console.log({elements})
-
   return (
     <PageContainer
       onClick={() => {

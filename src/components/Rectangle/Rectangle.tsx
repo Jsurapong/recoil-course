@@ -32,8 +32,7 @@ export const Rectangle = ({ id }: { id: number }) => {
   const [element, setElement] = useRecoilState(elementState(id));
   const selected = id === selectedElement;
 
-  console.log({element})
-
+  console.log({ element });
 
   return (
     <RectangleContainer
@@ -48,7 +47,6 @@ export const Rectangle = ({ id }: { id: number }) => {
         position={element.style.position}
         size={element.style.size}
         onResize={(style) => {
-          
           setElement({ ...element, style });
         }}
       >
